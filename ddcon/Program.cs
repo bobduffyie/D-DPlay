@@ -24,7 +24,10 @@ namespace ddcon
             game.Players.Add(c);
 
 
-          
+            game.RollInitiative();
+
+
+            
 
 
 

@@ -35,5 +35,12 @@ namespace dd.Engine
             return Roll(TypeOfDice, 1, 0);
         }
 
+
+        public float RandomFloat()
+        {
+                return Convert.ToSingle(rnd.NextDouble() );
+        }
+
+
     }
 }

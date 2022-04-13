@@ -12,6 +12,16 @@ namespace UnitTestProject1
     public class UnitTest1
     {
 
+        [TestMethod]
+        public void RollFloat()
+        {
+            Dice dice = new Dice();
+            for (int x = 0; x < 100; x++) {
+                float n = dice.RandomFloat();
+                Console.WriteLine( n.ToString());
+            }
+        } 
+
 
         [TestMethod]
         public void StaticRollD6()
@@ -39,10 +49,25 @@ namespace UnitTestProject1
                 if (result > maxRoll) { maxRoll = result; }
                 Console.WriteLine(result);
             }
-            Assert.AreEqual(6, maxRoll);
+            Assert.AreEqual(6 ,maxRoll);
 
         }
 
+
+        [TestMethod]
+        public void RollD20()
+        {
+            int maxRoll = 0;
+            Dice dice = new Dice();
+            for (int x = 0; x < 100; x++)
+            {
+                int result = dice.Roll(20, 1, 0);
+                if (result > maxRoll) { maxRoll = result; }
+                Console.WriteLine(result);
+            }
+            Assert.AreEqual(20, maxRoll);
+
+        }
 
 
         [TestMethod]
@@ -84,7 +109,7 @@ namespace UnitTestProject1
             /* Can Also use a TupleList as per https://stackoverflow.com/questions/5716423/c-sharp-sortable-collection-which-allows-duplicate-keys */
             Console.WriteLine("Order Players by Initative Using Linq and IEnumerable");
 
-            IEnumerable<Character> query = game.Players.OrderByDescending(x => x.Initiative);
+            IEnumerable<Character> query = game.Players.OrderByDescending(hh => hh.Initiative);
             foreach (Character p in query)
             {
                 Console.WriteLine(p.Number.ToString() + " Goes Next");
